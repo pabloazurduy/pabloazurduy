@@ -1,0 +1,16 @@
+objective \\
+&\min\sum_{i\in I, t \in T} u_{i,t} \\
+def \\
+d_{i,t} &: \text{demand forecast on the day t in store i}\\
+e_{i,t} &: \text{number of units shipped on t to the store i }\\
+u_{i,t} &: \text{number of unfulfilled orders the day t to store i}\\
+s_{i,t} &: \text{units in inventory the day t in store i}\\
+{bu}_{i,t} &: \text{binary variable to codify max of the unfulfilled var}\\
+st \\
+\text{initial inventory}: s_{i,0} &= 20 \;\forall i \in I \\
+\text{inventory ecuation}: s_{i,t} &= s_{i,t-1} + e_{i,t-1} - d_{i,t-1} + u_{i,t-1}\\
+\text{unfulfill codify}: u_{i,t} &= \max\{s_{i,t} + e_{i,t}, d_{i,t}\}  \;\forall i ,t \\
+\Leftrightarrow & \; u_{i,t} \ge -s_{i,t}-  e_{i,t} + d_{i,t} \\
+                & \; u_{i,t} \le -s_{i,t}-  e_{i,t} + d_{i,t}  + M*{bu}_{i,t}\\
+                & \; u_{i,t} \le  M*(1-{bu}_{i,t})\\
+\text{shipment capacity}: \sum_{i \in I}e_{i,t} &= 120 \;\forall t \in T \\\\
