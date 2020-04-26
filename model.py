@@ -33,11 +33,11 @@ for store in demand_parameters.keys():
 demand_df = pd.DataFrame.from_dict(demand)
 
 # plot stores demand 
-fig = sns.lineplot(data=demand_df[[1,2,4]], dashes=False)
-plt.xlabel("t periods")
-plt.ylabel("demand")
-plt.title("demand by store ") # You can comment this line out if you don't need title
-plt.show(fig)
+#fig = sns.lineplot(data=demand_df[[1,2,4]], dashes=False)
+#plt.xlabel("t periods")
+#plt.ylabel("demand")
+#plt.title("demand by store ") # You can comment this line out if you don't need title
+#plt.show(fig)
 # the LP model
 import mip 
 
@@ -128,7 +128,7 @@ sns.lineplot(x='day', y='d',
              data=selected,
              ax = length_ax)
 
-length_fig.savefig('lineal.pdf')
+length_fig.savefig('results/lineal.png',  dpi=1200)
 
 
 # ============================== #
@@ -145,7 +145,7 @@ for i in stores:
                                          var = u[(i,t)], 
                                          id_name = 'qpu_{}_{}'.format(i,t),
                                          min_interval = 0, # lower value where we estimate that u will be moving 
-                                         max_interval = 100, # lower value where we estimate that u will be moving 
+                                         max_interval = 100, # higher value where we estimate that u will be moving 
                                          num_linspace = 5 # number of points of discretization 
                                          )
 
@@ -154,7 +154,7 @@ mdl.objective = mip.xsum(qa_u[(i,t)] for i in stores for t in days)
 # add some solver options 
 mdl.threads = -1
 mdl.max_mip_gap_abs = 0.10
-status = mdl.optimize(max_seconds=100, )
+status = mdl.optimize(max_seconds=2000, )
 print(status)
 if mdl.status == mip.OptimizationStatus.FEASIBLE:
     print('solver ended up with a gap of {:0.2f} %'.format(mdl.gap * 100))
@@ -195,5 +195,5 @@ sns.lineplot(x='day', y='d',
              data=selected,
              ax = width_ax)
 
-length_fig.savefig('quadratic.pdf')
+width_fig.savefig('results/quadratic.png',  dpi=1200)
 

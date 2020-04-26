@@ -1,3 +1,5 @@
+% lineal model
+
 objective \\
 &\min\sum_{i\in I, t \in T} u_{i,t} \\
 def \\
@@ -14,3 +16,21 @@ st \\
                 & \; u_{i,t} \le -s_{i,t}-  e_{i,t} + d_{i,t}  + M*{bu}_{i,t}\\
                 & \; u_{i,t} \le  M*(1-{bu}_{i,t})\\
 \text{shipment capacity}: \sum_{i \in I}e_{i,t} &= 120 \;\forall t \in T \\\\
+
+% quadratic function 
+\min \sum_{i,j} {u_{i,j}^2}
+
+% taylor function 
+f(x|x_{0}) &\approx \frac{\partial f(x_{0})}{\partial x}(x-x_{0}) + f(x_{0}) &\; \;\text{(taylor first order)} \\
+f(x) &= x^{2}  & \;\text{(replacing with our function)} \\
+L_{x_{0}}(x) &= f(x|x_{0}) \approx 2*x_{0}*x-x_{0}^{2}   & \;\text{(defining line L)}
+
+% codify linearization to mip
+
+\overline{f}(x) &= \max({L_{x_{k}}(x)})  &\forall x_{k}\\
+\Rightarrow \overline{f} &\le {L_{x_{k}}(x)}  &\forall x_{k}\\
+\overline{f} &\ge {L_{x_{k}}(x)} + (1-b_{k})*M  &\forall x_{k}\\
+\sum_{k} b_{k} &=1 &(1) \\
+\text{replacing with }(L_{x_{k}}(x) &= 2*x_{k}*x-x_{k}^{2}) \\
+\overline{f} &\le 2*x_{k}*x-x_{k}^{2}  &\forall x_{k}\;(2)\\
+\overline{f} &\ge 2*x_{k}*x-x_{k}^{2} + (1-b_{k})*M  &\forall x_{k}\;(3)\\
