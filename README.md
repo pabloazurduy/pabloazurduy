@@ -1,4 +1,5 @@
-# medium source Solving a Quadratic Problem (QP) in an open source lineal solver
+# linear QP code
+### Solving a Quadratic Problem (QP) in an open source lineal solver (python-mip)
 qp-mip-example
 
 ## installation 
