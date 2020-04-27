@@ -13,7 +13,7 @@ some of the equations latex code used in the article are in the `model.tex` file
 
 ## Model 
 
-<img src="medium_img/model_lineal@2x.png"  alt="model_lineal" width="600"/>
+<img src="medium_img/model_lineal@2x.png"  alt="model_lineal" width="500"/>
 
 ## Linearization of the quadratic function
 <img src="medium_img/quadratic_function_discrete.png" alt="quadratic_function_discrete" width="550"/>
