@@ -13,12 +13,12 @@ some of the equations latex code used in the article are in the `model.tex` file
 
 ## Model 
 
-![model definition](medium_img/model_lineal.png "Model")
+<img src="medium_img/model_lineal.png"  alt="model_lineal" width="600"/>
 
 ## Linearization of the quadratic function
-![alt text](medium_img/quadratic_function_discrete.png "Model")
+<img src="medium_img/quadratic_function_discrete.png" alt="quadratic_function_discrete" width="550"/>
 
 ## Results linear version
-![alt text](results/linear.png "Model")
+<img src="results/linear.png" alt="linear model" width="550"/>
 ## Results quadratic version
-![alt text](results/quadratic.png "Model")
+<img src="results/quadratic.png" alt="quadratic model" width="550"/>
