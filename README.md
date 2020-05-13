@@ -1,6 +1,6 @@
 # linear QP code
 ### Solving a Quadratic Problem (QP) in an open source linear solver (python-mip)
-qp-mip-example
+qp-mip-example. This code is more explained in this [medium post](https://towardsdatascience.com/solving-a-quadratic-problem-qp-in-an-open-source-linear-solver-56ed6bb468e8?source=friends_link&sk=93e4433811ed4efc74bd393fe1dffa85)
 
 ## Installation 
     cd qp-mip
