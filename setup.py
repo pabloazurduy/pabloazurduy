@@ -4,7 +4,7 @@ from setuptools import setup
 
 REQUIRED_PACKAGES = ['pandas==1.0.2',
                      'mip==1.5.0',     #1.7.3 
-                     'scipy==1.4.1',
+                     'scipy==1.10.0',
                      'seaborn==0.10.0'
                      ]
 
